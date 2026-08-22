@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Place Made for Claudia</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            font-family: Georgia, "Times New Roman", serif;
+            color: #fffaf5;
+            overflow: hidden;
+            background:
+                radial-gradient(circle at 50% 35%, rgba(255, 225, 240, 0.25), transparent 35%),
+                linear-gradient(160deg, #38274d, #5c4169 45%, #263b35);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        .glow {
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            border-radius: 50%;
+            background: rgba(255, 220, 240, 0.08);
+            filter: blur(40px);
+        }
+
+        .firefly {
+            position: absolute;
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: #fff4a8;
+            box-shadow: 0 0 15px 5px rgba(255, 244, 168, 0.6);
+            animation: float 4s ease-in-out infinite alternate;
+        }
+
+        .f1 { top: 18%; left: 20%; animation-delay: 0s; }
+        .f2 { top: 30%; left: 75%; animation-delay: 1s; }
+        .f3 { top: 70%; left: 15%; animation-delay: 2s; }
+        .f4 { top: 78%; left: 82%; animation-delay: 0.5s; }
+        .f5 { top: 12%; left: 58%; animation-delay: 1.5s; }
+        .f6 { top: 62%; left: 68%; animation-delay: 2.5s; }
+
+        @keyframes float {
+            from {
+                transform: translateY(0);
+                opacity: 0.4;
+            }
+            to {
+                transform: translateY(-25px);
+                opacity: 1;
+            }
+        }
+
+        .container {
+            width: min(90%, 600px);
+            text-align: center;
+            padding: 50px 30px;
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            border-radius: 30px;
+            background: rgba(35, 24, 48, 0.45);
+            backdrop-filter: blur(12px);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+            z-index: 2;
+        }
+
+        .lily {
+            font-size: 70px;
+            margin-bottom: 10px;
+            animation: gentleGlow 3s ease-in-out infinite alternate;
+        }
+
+        @keyframes gentleGlow {
+            from {
+                transform: scale(1);
+                filter: drop-shadow(0 0 5px rgba(255,255,255,0.4));
+            }
+            to {
+                transform: scale(1.06);
+                filter: drop-shadow(0 0 20px rgba(255,255,255,0.8));
+            }
+        }
+
+        h1 {
+            font-size: clamp(32px, 7vw, 52px);
+            font-weight: normal;
+            margin: 10px 0;
+        }
+
+        .subtitle {
+            font-size: 18px;
+            line-height: 1.7;
+            color: #f7e9ef;
+            margin-bottom: 30px;
+        }
+
+        input {
+            width: min(100%, 300px);
+            padding: 15px;
+            border-radius: 14px;
+            border: 1px solid rgba(255,255,255,0.3);
+            background: rgba(255,255,255,0.12);
+            color: white;
+            text-align: center;
+            font-size: 22px;
+            letter-spacing: 8px;
+            outline: none;
+        }
+
+        input:focus {
+            border-color: #ffe9f2;
+            box-shadow: 0 0 20px rgba(255, 233, 242, 0.2);
+        }
+
+        button {
+            display: block;
+            margin: 18px auto 0;
+            padding: 13px 30px;
+            border: none;
+            border-radius: 30px;
+            background: linear-gradient(135deg, #f3b8d1, #d99ab9);
+            color: #3b2943;
+            font-size: 17px;
+            font-family: inherit;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(243, 184, 209, 0.3);
+        }
+
+        .hint {
+            margin-top: 25px;
+            color: #e9d8e2;
+            font-size: 15px;
+            min-height: 24px;
+        }
+
+        .error {
+            color: #ffb9c8;
+            margin-top: 15px;
+            min-height: 24px;
+        }
+
+        .success {
+            position: fixed;
+            inset: 0;
+            background: #fff8f2;
+            color: #50384e;
+            display: none;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            z-index: 10;
+        }
+
+        .success-content {
+            animation: appear 2s ease forwards;
+        }
+
+        .success .flower {
+            font-size: 90px;
+        }
+
+        .success h2 {
+            font-size: 42px;
+            font-weight: normal;
+        }
+
+        @keyframes appear {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="glow"></div>
+
+    <div class="firefly f1"></div>
+    <div class="firefly f2"></div>
+    <div class="firefly f3"></div>
+    <div class="firefly f4"></div>
+    <div class="firefly f5"></div>
+    <div class="firefly f6"></div>
+
+    <main class="container">
+        <div class="lily">🤍</div>
+
+        <h1>A Place Made for Claudia</h1>
+
+        <p class="subtitle">
+            Somewhere beyond this door,<br>
+            there is a little world waiting for you.
+        </p>
+
+        <input
+            id="codeInput"
+            type="password"
+            maxlength="10"
+            placeholder="Secret code"
+        >
+
+        <button onclick="unlock()">Enter the Garden</button>
+
+        <button onclick="showHint()" style="background: transparent; color: #f7e9ef; box-shadow: none;">
+            I need a hint
+        </button>
+
+        <div class="hint" id="hint"></div>
+        <div class="error" id="error"></div>
+    </main>
+
+    <div class="success" id="success">
+        <div class="success-content">
+            <div class="flower">🌷</div>
+            <h2>The garden remembers you.</h2>
+            <p>Welcome, Claudia.</p>
+        </div>
+    </div>
+
+    <script>
+        // ============================================
+        // YOUR SECRET CODE
+        // Change 2313 whenever you want!
+        // ============================================
+
+        const secretCode = "2313";
+
+        let hintUsed = false;
+
+        function unlock() {
+            const enteredCode = document.getElementById("codeInput").value;
+            const error = document.getElementById("error");
+
+            if (enteredCode === secretCode) {
+                document.getElementById("success").style.display = "flex";
+                error.textContent = "";
+            } else {
+                error.textContent = "Hmm... that's not quite it, princess. 🌷";
+            }
+        }
+
+        function showHint() {
+            const hint = document.getElementById("hint");
+
+            if (!hintUsed) {
+                hint.textContent = "Hint: It's a number that's meaningful for now. ✨";
+                hintUsed = true;
+            } else {
+                hint.textContent = "You'll have to keep thinking... 💗";
+            }
+        }
+
+        document.getElementById("codeInput").addEventListener("keydown", function(event) {
+            if (event.key === "Enter") {
+                unlock();
+            }
+        });
+    </script>
+
+</body>
+</html>

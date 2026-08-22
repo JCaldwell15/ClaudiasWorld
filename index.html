@@ -1,0 +1,2740 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Place Made for Claudia</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="glow"></div>
+
+    <div class="firefly f1"></div>
+    <div class="firefly f2"></div>
+    <div class="firefly f3"></div>
+    <div class="firefly f4"></div>
+    <div class="firefly f5"></div>
+    <div class="firefly f6"></div>
+
+
+    <!-- ============================================
+         SECRET CODE SCREEN
+         ============================================ -->
+
+    <main class="container">
+
+        <div class="lily">🤍</div>
+
+        <h1>A Place Made for Claudia</h1>
+
+        <p class="subtitle">
+            Somewhere beyond this door,<br>
+            there is a little world waiting for you.
+        </p>
+
+        <input
+            id="codeInput"
+            type="password"
+            maxlength="10"
+            placeholder="Secret code"
+        >
+
+        <button onclick="unlock()">
+            Enter the Garden
+        </button>
+
+       <div class="hint-system">
+
+    <div class="hint-header">
+
+        <span class="hint-icon">
+            ✦
+        </span>
+
+        <div>
+            <p class="hint-title">
+                Need a little help?
+            </p>
+
+            <p class="hint-count" id="hintCount">
+                3 hints available
+            </p>
+        </div>
+
+    </div>
+
+
+    <button
+        class="hint-reveal-button"
+        id="hintRevealButton"
+        onclick="showHint()">
+
+        ✦ Reveal Hint 1
+
+    </button>
+
+
+    <div
+        class="hint"
+        id="hint">
+    </div>
+
+</div>
+        <div class="error" id="error"></div>
+
+    </main>
+
+
+    <!-- ============================================
+         SUCCESS / GARDEN
+         ============================================ -->
+
+    <div class="success" id="success">
+
+        <div class="garden-scene">
+
+
+            <!-- ====================================
+                 FIRST FIREFLY
+                 ==================================== -->
+
+            <button
+                class="garden-firefly"
+                onclick="revealGardenMessage()">
+                ✨
+            </button>
+
+
+            <!-- ====================================
+                 HIDDEN FLOWER
+                 ==================================== -->
+
+            <button
+                class="garden-flower"
+                onclick="revealFlowerMessage()">
+                🌷
+            </button>
+
+
+            <!-- ====================================
+                 LANTERN
+                 ==================================== -->
+
+            <button
+                class="garden-lantern"
+                onclick="revealLanternMessage()">
+                🏮
+            </button>
+
+
+            <div
+                class="garden-message"
+                id="lanternMessage"
+                style="display: none;">
+
+                <div class="garden-message-box">
+
+                    <div class="message-flower">
+                        🤍
+                    </div>
+
+                    <p>
+                        Some things are worth finding slowly.
+                    </p>
+
+                    <p>
+                        And some are meant to remind you<br>
+                        that you are cared for.
+                    </p>
+
+                    <button onclick="closeLanternMessage()">
+                        Keep exploring
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- ====================================
+                 BENCH
+                 ==================================== -->
+
+            <button
+                class="garden-bench"
+                onclick="revealBenchMessage()">
+                🪑
+            </button>
+
+
+            <div
+                class="garden-message"
+                id="benchMessage"
+                style="display: none;">
+
+                <div class="garden-message-box poem-box">
+
+                    <h3>
+                        You Can Rest Here
+                    </h3>
+
+                    <p>
+                        The cape can rest, the mask can hide,<br>
+                        You don't need to be strong inside,<br>
+                        Always fighting, always bright,<br>
+                        Holding back the dark of night.
+                    </p>
+
+                    <p>
+                        When shoulders ache with all you bear,<br>
+                        A whispered plea, a breath of air,<br>
+                        It's okay to bend and sway,<br>
+                        Let someone else lead the way.
+                    </p>
+
+                    <p>
+                        No need to stand on guard so tall,<br>
+                        To catch each tear before it falls.<br>
+                        A gentle hand, a steady hold,<br>
+                        A story waiting to unfold.
+                    </p>
+
+                    <p>
+                        You are not made of iron might,<br>
+                        But tender heart and loving light.<br>
+                        So let them lift the heavy load,<br>
+                        And walk with you upon this road.
+                    </p>
+
+                    <button onclick="closeBenchMessage()">
+                        Keep exploring
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- ====================================
+                 GARDEN TITLE
+                 ==================================== -->
+
+            <div class="garden-title">
+
+                <p class="small-text">
+                    A little world made just for you
+                </p>
+
+                <h2>
+                    Claudia's Garden
+                </h2>
+
+                <p class="garden-subtitle">
+                    Take your time.<br>
+                    There are things here waiting to be discovered.
+                </p>
+
+            </div>
+
+
+            <!-- ====================================
+                 ENTER WORLD
+                 ==================================== -->
+
+            <button
+                class="garden-door"
+                onclick="enterWorld()">
+
+                ✦
+
+                <span>
+                    Continue
+                </span>
+
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- ============================================
+         WORLD TRANSITION
+         ============================================ -->
+
+    <div
+        class="world-transition"
+        id="worldTransition">
+
+        <div class="world-transition-content">
+
+            <div class="transition-symbol">
+                ✦
+            </div>
+
+            <p>
+                There is more waiting beyond the garden...
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- ============================================
+         CLAUDIA'S WORLD — CENTRAL HUB
+         ============================================ -->
+
+    <div
+        class="world-hub"
+        id="worldHub">
+
+        <div class="hub-content">
+
+            <p class="hub-small">
+                Welcome to your little world
+            </p>
+
+            <h2>
+                Claudia's World
+            </h2>
+
+            <p class="hub-subtitle">
+                There are many little places waiting for you.<br>
+                Take your time. Explore them all.
+            </p>
+
+        </div>
+
+
+        <!-- ============================================
+             PRINCESS'S ROOM ENTRANCE
+             ============================================ -->
+
+        <button
+            class="world-door princess-door"
+            onclick="openPrincessRoom()">
+
+            👑
+
+            <span>
+                The Princess's Room
+            </span>
+
+        </button>
+
+
+        <!-- ============================================
+             LETTERS
+             ============================================ -->
+
+        <button
+            class="world-door letters-door"
+            onclick="openLettersRoom()">
+
+            💌
+
+            <span>
+                The Letters
+            </span>
+
+        </button>
+
+
+        <!-- ============================================
+             MUSIC ROOM
+             ============================================ -->
+
+        <button
+            class="world-door music-door"
+            onclick="openMusicRoom()">
+
+            🎵
+
+            <span>
+                The Music Room
+            </span>
+
+        </button>
+
+
+        <!-- ============================================
+             GALLERY
+             ============================================ -->
+
+        <button
+            class="world-door gallery-door"
+            onclick="openGallery()">
+
+            🎨
+
+            <span>
+                The Gallery
+            </span>
+
+        </button>
+
+
+        <!-- ============================================
+             SOMETHING WAITING
+             ============================================ -->
+
+        <button
+            class="world-door something-door"
+            onclick="openSomethingWaited()">
+
+            🔮
+
+            <span>
+                Something Waiting...
+            </span>
+
+        </button>
+
+
+        <!-- ============================================
+             PLACES THAT CHANGED YOU
+             ============================================ -->
+
+        <button
+            class="world-door places-door"
+            onclick="openPlacesRoom()">
+
+            🌎
+
+            <span>
+                Places That Changed You
+            </span>
+
+        </button>
+
+
+        <!-- ============================================
+             A PLACE FOR PEACE
+             ============================================ -->
+
+        <button
+            class="world-door peace-door"
+            onclick="openPeaceRoom()">
+
+            🕊️
+
+            <span>
+                A Place for Peace
+            </span>
+
+        </button>
+<!-- ============================================
+     RETURN TO THE GARDEN
+     ============================================ -->
+
+<button
+    class="world-door garden-door"
+    onclick="openGarden()">
+
+    🌷
+
+    <span>
+        Return to the Garden
+    </span>
+
+</button>
+
+    </div>
+
+
+
+    <!-- ============================================
+         THE MUSIC ROOM
+         ============================================ -->
+
+    <div
+        class="music-room"
+        id="musicRoom">
+
+        <div class="music-room-content">
+
+
+            <!-- MUSIC ROOM TITLE -->
+
+            <div class="music-room-title">
+
+                <p class="music-small">
+                    songs we made memories with
+                </p>
+
+                <h2>
+                    🎵 Our Music
+                </h2>
+
+                <p class="music-room-subtitle">
+                    Little pieces of our story, all in one place.
+                </p>
+
+            </div>
+
+
+            <!-- CENTRAL RECORD PLAYER -->
+
+            <div class="music-center">
+
+                <div class="record-player">
+
+                    <div class="record">
+
+                        <div class="record-grooves"></div>
+
+                        <div class="record-label">
+                            <span>♪</span>
+                        </div>
+
+                        <div class="record-center"></div>
+
+                    </div>
+
+                    <div class="record-arm"></div>
+
+                </div>
+
+
+                <!-- NOW PLAYING -->
+
+                <div class="now-playing">
+
+                    <p class="now-playing-label">
+                        NOW PLAYING
+                    </p>
+
+                    <h3 id="nowPlayingTitle">
+                        Choose a song
+                    </h3>
+
+                    <p id="nowPlayingArtist">
+                        Your music will live here.
+                    </p>
+
+                </div>
+
+
+                <!-- PLAYER CONTROLS -->
+
+                <div class="music-controls">
+
+                    <button
+                        class="music-control"
+                        onclick="previousSong()"
+                        aria-label="Previous song">
+                        ◀
+                    </button>
+
+                    <button
+                        class="music-control music-control-main"
+                        id="musicPlayButton"
+                        onclick="toggleMusicPlayer()"
+                        aria-label="Play music">
+                        ▶
+                    </button>
+
+                    <button
+                        class="music-control"
+                        onclick="nextSong()"
+                        aria-label="Next song">
+                        ▶
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- PLAYLISTS -->
+
+            <div class="playlist-container">
+
+
+                <!-- LATE NIGHT VIBES -->
+
+                <div class="playlist-card late-night-playlist">
+
+                    <div class="playlist-icon">
+                        🌙
+                    </div>
+
+                    <h3>
+                        Late Night Vibes
+                    </h3>
+
+                    <p>
+                        The playlist we made together —
+                        32 songs that became part of our story.
+                    </p>
+
+                    <iframe
+                        src="https://open.spotify.com/embed/playlist/2ihvMYghlkHiyPJNbzlBsZ"
+                        width="100%"
+                        height="352"
+                        frameborder="0"
+                        allowfullscreen=""
+                        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                        loading="lazy">
+                    </iframe>
+
+                </div>
+
+
+                <!-- FOR CLAUDIA -->
+
+                <div class="playlist-card for-claudia-playlist">
+
+                    <div class="playlist-icon">
+                        💗
+                    </div>
+
+                    <h3>
+                        For Claudia
+                    </h3>
+
+                    <p>
+                        A playlist I made just for you.
+                    </p>
+
+                    <iframe
+                        src="https://open.spotify.com/embed/playlist/07d9NckPf1Wgkmt0nBzSUk"
+                        width="100%"
+                        height="352"
+                        frameborder="0"
+                        allowfullscreen=""
+                        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                        loading="lazy">
+                    </iframe>
+
+                </div>
+
+
+                <!-- YOUR FAVORITES -->
+
+                <div class="playlist-card your-favorites-playlist">
+
+                    <div class="playlist-icon">
+                        🎧
+                    </div>
+
+                    <h3>
+                        Your Favorites
+                    </h3>
+
+                    <p>
+                        Some songs I've noticed you listen to often.
+                    </p>
+
+                    <iframe
+                        src="https://open.spotify.com/embed/playlist/2pwkmPL1XsTIE0wIZYrs0d"
+                        width="100%"
+                        height="352"
+                        frameborder="0"
+                        allowfullscreen=""
+                        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                        loading="lazy">
+                    </iframe>
+
+                </div>
+
+            </div>
+
+
+            <!-- RETURN TO WORLD -->
+
+            <button
+                class="music-room-return"
+                onclick="closeMusicRoom()">
+
+                ✦
+
+                <span>
+                    Return to Claudia's World
+                </span>
+
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- ============================================
+         THE PRINCESS'S ROOM
+         ============================================ -->
+
+    <div
+        class="princess-room"
+        id="princessRoom">
+
+        <!--
+            This is intentionally a completely separate scene.
+            It starts hidden through CSS and is only displayed
+            when openPrincessRoom() is called.
+        -->
+
+        <div class="princess-room-content">
+        </div>
+
+
+        <!-- ========================================
+             MIRROR
+             ======================================== -->
+
+        <button
+            class="princess-mirror"
+            onclick="openFavoritePhotos()"
+            aria-label="Open favorite pictures">
+        </button>
+
+
+        <!-- ========================================
+             CROWN
+             ======================================== -->
+
+        <button
+            class="princess-crown"
+            onclick="revealCrownMessage()"
+            aria-label="Open the crown">
+        </button>
+
+
+        <!-- CROWN MESSAGE -->
+
+        <div
+            class="princess-message"
+            id="crownMessage"
+            style="display: none;">
+
+            <div class="princess-message-box">
+
+                <div class="message-symbol">
+                    👑
+                </div>
+
+                <h3>
+                    For My Princess
+                </h3>
+
+                <p>
+                    You don't have to wear a crown<br>
+                    to be the most beautiful person in the room.
+                </p>
+
+                <p>
+                    To me, you always will be.
+                </p>
+
+                <button onclick="closeCrownMessage()">
+                    Keep exploring ✨
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- ========================================
+             BED
+             ======================================== -->
+
+        <button
+            class="princess-bed"
+            onclick="revealBedMessage()"
+            aria-label="Open the bed">
+        </button>
+
+
+        <!-- BED MESSAGE -->
+
+        <div
+            class="princess-message"
+            id="bedMessage"
+            style="display: none;">
+
+            <div class="princess-message-box">
+
+                <div class="message-symbol">
+                    🌙
+                </div>
+
+                <h3>
+                    You Can Rest Here
+                </h3>
+
+                <p>
+                    You don't always have to be strong.
+                </p>
+
+                <p>
+                    You don't have to carry everything<br>
+                    or have all the answers.
+                </p>
+
+                <p>
+                    Sometimes you can simply rest,<br>
+                    breathe, and let yourself be cared for.
+                </p>
+
+                <button onclick="closeBedMessage()">
+                    Keep exploring ✨
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- ========================================
+             WINDOW
+             ======================================== -->
+
+        <button
+            class="princess-window"
+            onclick="revealWindowMessage()"
+            aria-label="Open the window">
+        </button>
+
+
+        <!-- WINDOW MESSAGE -->
+
+        <div
+            class="princess-message"
+            id="windowMessage"
+            style="display: none;">
+
+            <div class="princess-message-box">
+
+                <div class="princess-message-box">
+
+                    <div class="message-symbol">
+                        🌙
+                    </div>
+
+                    <h3>
+                        A Little Reminder
+                    </h3>
+
+                    <p>
+                        No matter how far you go,<br>
+                        no matter how much changes,
+                    </p>
+
+                    <p>
+                        I hope you always remember<br>
+                        that there will always be someone<br>
+                        cheering for you from somewhere.
+                    </p>
+
+                    <p>
+                        You deserve beautiful things. 🤍
+                    </p>
+
+                    <button onclick="closeWindowMessage()">
+                        Keep exploring ✨
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- ========================================
+             DESK
+             ======================================== -->
+
+        <button
+            class="princess-desk"
+            onclick="revealDeskMessage()"
+            aria-label="Open the desk">
+        </button>
+
+
+        <!-- DESK MESSAGE -->
+
+        <div
+            class="princess-message"
+            id="deskMessage"
+            style="display: none;">
+
+            <div class="princess-message-box">
+
+                <div class="message-symbol">
+                    📝
+                </div>
+
+                <h3>
+                    Things I Hope You Remember
+                </h3>
+
+                <p>
+                    You are more loved than you realize.
+                </p>
+
+                <p>
+                    You are allowed to be proud of yourself.<br>
+                    You are allowed to rest.<br>
+                    You are allowed to put yourself first sometimes.
+                </p>
+
+                <p>
+                    And you never have to earn the love<br>
+                    of the people who truly care about you.
+                </p>
+
+                <button onclick="closeDeskMessage()">
+                    Keep exploring ✨
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- ========================================
+             RETURN TO WORLD
+             ======================================== -->
+
+        <button
+            class="princess-return"
+            onclick="closePrincessRoom()">
+
+            ✦
+
+            <span>
+                Return to Claudia's World
+            </span>
+
+        </button>
+
+    </div>
+
+
+    <!-- ============================================
+         FAVORITE PICTURES
+         ============================================ -->
+
+    <div
+        class="favorite-gallery"
+        id="favoriteGallery">
+
+        <div class="favorite-gallery-content">
+
+
+            <!-- GALLERY TITLE -->
+
+            <div class="favorite-gallery-title">
+
+                <p>
+                    Some of my favorite pictures of you
+                </p>
+
+                <h2>
+                    Mis Fotos Favoritas
+                </h2>
+
+            </div>
+
+
+            <!-- PHOTOS -->
+
+            <div class="favorite-photos">
+
+
+                <!-- PHOTO 1 -->
+
+                <div class="favorite-photo">
+
+                    <div class="photo-frame">
+
+                        <img
+                            src="claudia-pic-1.jpg"
+                            alt="A favorite picture of Claudia">
+
+                    </div>
+
+                    <div class="photo-message">
+                        Eres hermosa.
+                    </div>
+
+                </div>
+
+
+                <!-- PHOTO 2 -->
+
+                <div class="favorite-photo">
+
+                    <div class="photo-frame">
+
+                        <img
+                            src="claudia-pic-2.jpg"
+                            alt="A favorite picture of Claudia">
+
+                    </div>
+
+                    <div class="photo-message">
+                        Me encantan tus ojos en esta foto.
+                    </div>
+
+                </div>
+
+
+                <!-- PHOTO 3 -->
+
+                <div class="favorite-photo">
+
+                    <div class="photo-frame">
+
+                        <img
+                            src="claudia-pic-3.jpg"
+                            alt="A favorite picture of Claudia">
+
+                    </div>
+
+                    <div class="photo-message">
+                        Mi preciosa.
+                    </div>
+
+                </div>
+
+
+            </div>
+
+
+            <!-- RETURN FROM PHOTO GALLERY -->
+
+            <button
+                class="favorite-return"
+                onclick="closeFavoritePhotos()">
+
+                ✦
+
+                <span>
+                    Return to the Princess's Room
+                </span>
+
+            </button>
+
+
+        </div>
+
+    </div>
+<!-- ============================================
+     A PLACE FOR PEACE
+     ============================================ -->
+
+<div class="peace-room" id="peaceRoom">
+
+    <div class="peace-background">
+
+        <!-- ========================================
+             SECTION 1 — ARRIVAL
+             ======================================== -->
+
+        <section class="peace-section peace-arrival">
+
+            <div class="peace-moon">
+                ☾
+            </div>
+
+            <!-- STARS -->
+
+            <div class="peace-star peace-star-1">✦</div>
+            <div class="peace-star peace-star-2">✧</div>
+            <div class="peace-star peace-star-3">✦</div>
+            <div class="peace-star peace-star-4">·</div>
+            <div class="peace-star peace-star-5">✧</div>
+            <div class="peace-star peace-star-6">·</div>
+
+
+            <div class="peace-title">
+
+                <p class="peace-small">
+                    a quiet place for your heart
+                </p>
+
+                <h2>
+                    🕊️ A Place for Peace
+                </h2>
+
+                <p class="peace-subtitle">
+                    A little place to pray, breathe,<br>
+                    and simply be still for a while.
+                </p>
+
+            </div>
+
+
+            <div class="peace-scroll-hint">
+                <span>Scroll gently</span>
+                <span class="peace-scroll-arrow">↓</span>
+            </div>
+
+        </section>
+
+
+        <!-- ========================================
+             SECTION 2 — PRAYER GARDEN
+             ======================================== -->
+
+        <section class="peace-section peace-garden-section">
+
+            <div class="peace-garden">
+
+                <!-- CROSS -->
+
+                <button
+                    class="peace-cross"
+                    onclick="revealPeaceCross()"
+                    aria-label="Open the cross">
+
+                    ✝
+
+                </button>
+
+
+                <!-- CANDLE -->
+
+                <button
+                    class="peace-candle"
+                    onclick="revealPeaceCandle()"
+                    aria-label="Light the candle">
+
+                    🕯️
+
+                </button>
+
+
+                <!-- BIBLE -->
+
+                <button
+                    class="peace-bible"
+                    onclick="revealPeaceBible()"
+                    aria-label="Open the Bible">
+
+                    📖
+
+                </button>
+
+
+                <!-- DOVE -->
+
+                <button
+                    class="peace-dove"
+                    onclick="revealPeaceDove()"
+                    aria-label="Open the dove">
+
+                    🕊️
+
+                </button>
+
+
+                <!-- BENCH -->
+
+                <button
+                    class="peace-bench"
+                    onclick="revealPeaceBench()"
+                    aria-label="Sit and pray">
+
+                    🪑
+
+                </button>
+
+
+                <!-- FLOWERS -->
+
+                <div class="peace-flowers">
+                    🌿 🌸 🌿 🌼 🌿 🌸 🌿
+                </div>
+
+            </div>
+
+
+            <div class="peace-garden-text">
+
+                <p>
+                    Take your time.
+                </p>
+
+                <span>
+                    There are a few things here for you to discover.
+                </span>
+
+            </div>
+
+        </section>
+
+
+        <!-- ========================================
+             SECTION 3 — PRAYER & REFLECTION
+             ======================================== -->
+
+        <section class="peace-section peace-reflection-section">
+
+            <div class="peace-reflection">
+
+                <p class="peace-reflection-small">
+                    What does your heart need today?
+                </p>
+
+                <h3>
+                    Prayer & Reflection
+                </h3>
+
+                <p class="peace-reflection-text">
+                    You don't have to carry everything alone.
+                    Choose whatever feels closest to your heart.
+                </p>
+
+
+                <div class="peace-needs">
+
+                    <button onclick="showPeaceNeed('peace')">
+                        🌿 Peace
+                    </button>
+
+                    <button onclick="showPeaceNeed('comfort')">
+                        🤍 Comfort
+                    </button>
+
+                    <button onclick="showPeaceNeed('strength')">
+                        🙏 Strength
+                    </button>
+
+                    <button onclick="showPeaceNeed('hope')">
+                        🌙 Hope
+                    </button>
+
+                    <button onclick="showPeaceNeed('guidance')">
+                        ✨ Guidance
+                    </button>
+
+                </div>
+
+
+                <!-- BE STILL -->
+
+                <button
+                    class="peace-still-button"
+                    onclick="beginStillness()">
+
+                    ✦
+
+                    <span>
+                        Be Still for a Moment
+                    </span>
+
+                </button>
+
+            </div>
+
+
+            <!-- RETURN -->
+
+            <button
+                class="peace-return"
+                onclick="closePeaceRoom()">
+
+                ✦
+
+                <span>
+                    Return to Claudia's World
+                </span>
+
+            </button>
+
+        </section>
+
+
+        <!-- ========================================
+             MESSAGE OVERLAY
+             ======================================== -->
+
+        <div
+            class="peace-message"
+            id="peaceMessage"
+            style="display: none;">
+
+            <div class="peace-message-box">
+
+                <div
+                    class="peace-message-symbol"
+                    id="peaceMessageSymbol">
+
+                    🕊️
+
+                </div>
+
+                <h3 id="peaceMessageTitle">
+                    A Little Peace
+                </h3>
+
+                <p id="peaceMessageText">
+                    You can stay here for a while.
+                </p>
+
+                <button onclick="closePeaceMessage()">
+                    Keep exploring ✨
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- ============================================
+     THE LETTERS
+     ============================================ -->
+
+<div
+    class="letters-room"
+    id="lettersRoom">
+
+
+<div class="letters-background">
+
+
+    <!-- ========================================
+         ARRIVAL / INTRODUCTION
+         ======================================== -->
+
+    <section class="letters-section letters-arrival">
+
+        <div class="letters-atmosphere">
+
+            <div class="letters-lamp-glow"></div>
+
+            <div class="letters-star letters-star-1">✦</div>
+            <div class="letters-star letters-star-2">✧</div>
+            <div class="letters-star letters-star-3">·</div>
+            <div class="letters-star letters-star-4">✦</div>
+
+        </div>
+
+
+        <div class="letters-intro">
+
+            <p class="letters-small">
+                words I wanted to leave behind
+            </p>
+
+            <h2>
+                💌 The Letters
+            </h2>
+
+            <p class="letters-subtitle">
+                A few things I've written for you.<br>
+                Take your time. Read whichever one calls to you.
+            </p>
+
+            <div class="letters-scroll-hint">
+
+                <span>
+                    explore
+                </span>
+
+                <span class="letters-scroll-arrow">
+                    ↓
+                </span>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ========================================
+         LETTER DESK
+         ======================================== -->
+
+    <section class="letters-section letters-desk-section">
+
+        <div class="letters-desk">
+
+            <!-- DESK LIGHT -->
+
+            <div class="letters-desk-light"></div>
+
+
+            <!-- DESK -->
+
+            <div class="letters-table">
+
+                <div class="letters-table-surface"></div>
+
+            </div>
+
+
+            <!-- ==================================
+                 LETTER 1
+                 ================================== -->
+
+            <button
+                class="letters-envelope letters-envelope-1"
+                onclick="openLetter(1)"
+                aria-label="Open For Your Eyes Only">
+
+                <div class="letters-envelope-paper">
+
+                    <span>
+                        01
+                    </span>
+
+                </div>
+
+                <div class="letters-envelope-flap"></div>
+
+                <div class="letters-envelope-label">
+                    The first poem I wrote for you
+                </div>
+
+            </button>
+
+
+            <!-- ==================================
+                 LETTER 2
+                 ================================== -->
+
+            <button
+                class="letters-envelope letters-envelope-2"
+                onclick="openLetter(2)"
+                aria-label="Open Something I Wanted to Say">
+
+                <div class="letters-envelope-paper">
+
+                    <span>
+                        02
+                    </span>
+
+                </div>
+
+                <div class="letters-envelope-flap"></div>
+
+                <div class="letters-envelope-label">
+                    Something I Wanted to Say
+                </div>
+
+            </button>
+
+
+            <!-- ==================================
+                 LETTER 3
+                 ================================== -->
+
+            <button
+                class="letters-envelope letters-envelope-3"
+                onclick="openLetter(3)"
+                aria-label="Open A Little Reminder">
+
+                <div class="letters-envelope-paper">
+
+                    <span>
+                        03
+                    </span>
+
+                </div>
+
+                <div class="letters-envelope-flap"></div>
+
+                <div class="letters-envelope-label">
+                    The second poem I wrote for you
+                </div>
+
+            </button>
+
+
+            <!-- ==================================
+                 LETTER 4
+                 ================================== -->
+
+            <button
+                class="letters-envelope letters-envelope-4"
+                onclick="openLetter(4)"
+                aria-label="Open A Bedtime Story">
+
+                <div class="letters-envelope-paper">
+
+                    <span>
+                        04
+                    </span>
+
+                </div>
+
+                <div class="letters-envelope-flap"></div>
+
+                <div class="letters-envelope-label">
+                    A Bedtime Story
+                </div>
+
+            </button>
+
+
+            <!-- ==================================
+                 LETTER 5
+                 ================================== -->
+
+            <button
+                class="letters-envelope letters-envelope-5"
+                onclick="openLetter(5)"
+                aria-label="Open For Whenever You Need It">
+
+                <div class="letters-envelope-paper">
+
+                    <span>
+                        05
+                    </span>
+
+                </div>
+
+                <div class="letters-envelope-flap"></div>
+
+               <div class="letters-envelope-label">
+    Reminder Letter
+</div>
+
+            </button>
+
+        </div>
+
+
+        <div class="letters-desk-instruction">
+
+            <p>
+                Five little pieces of something I wanted you to have.
+            </p>
+
+            <span>
+                Open whichever one you want.
+            </span>
+
+        </div>
+
+    </section>
+
+
+    <!-- ========================================
+         LETTER READER
+         ======================================== -->
+
+    <div
+        class="letters-reader"
+        id="lettersReader"
+        style="display: none;">
+
+        <div class="letters-reader-backdrop"></div>
+
+
+        <div class="letters-paper">
+
+            <button
+                class="letters-close"
+                onclick="closeLetter()"
+                aria-label="Close letter">
+
+                ×
+
+            </button>
+
+
+            <div class="letters-paper-top">
+
+                <span
+                    class="letters-paper-number"
+                    id="letterNumber">
+                    01
+                </span>
+
+                <span
+                    class="letters-paper-date"
+                    id="letterDate">
+                    written for you
+                </span>
+
+            </div>
+
+
+            <div class="letters-paper-content">
+
+                <h3 id="letterTitle">
+                    For Your Eyes Only
+                </h3>
+
+                <div
+                    class="letters-paper-text"
+                    id="letterText">
+
+                    <p>
+                        This is where your letter will go.
+                    </p>
+
+                    <p>
+                        You can replace this placeholder
+                        with anything you've written.
+                    </p>
+
+                    <p>
+                        It can be a letter, a poem,
+                        a memory, or simply something
+                        you've always wanted to say.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- ==================================
+                 VOICE READING
+                 ================================== -->
+
+            <div class="letters-voice">
+
+                <p class="letters-voice-label">
+                    If you'd rather hear this one...
+                </p>
+
+                <button
+                    class="letters-voice-button"
+                    onclick="toggleLetterAudio()">
+
+                    <span
+                        id="lettersVoiceIcon">
+                        ▶
+                    </span>
+
+                    <span
+                        id="lettersVoiceText">
+                        Hear me read it
+                    </span>
+
+                </button>
+
+                <audio
+                    id="letterAudio"
+                    preload="none">
+                </audio>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- ========================================
+         SOMETHING FROM HER
+         ======================================== -->
+
+    <section class="letters-section letters-write-section">
+
+        <div class="letters-write-container">
+
+            <p class="letters-small">
+                and now, something from you
+            </p>
+
+
+            <h2>
+                One from you
+            </h2>
+
+
+            <p class="letters-write-intro">
+                You've read the things I wanted you to know.
+                <br>
+                If you ever want to leave something here too,
+                you can.
+            </p>
+
+
+            <div class="letters-writing-paper">
+
+                <textarea
+                    id="lettersUserMessage"
+                    placeholder="Write whatever is on your heart..."
+                    maxlength="3000"></textarea>
+
+
+                <div class="letters-writing-footer">
+
+                    <span>
+                        0 / 3000
+                    </span>
+
+                    <button
+                        onclick="leaveLetter()">
+
+                        Leave it here ✉️
+
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <p class="letters-writing-note">
+                You don't have to write anything.
+                This space is simply here if you ever want it.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- ========================================
+         RESPONSE CONFIRMATION
+         ======================================== -->
+
+    <div
+        class="letters-response"
+        id="lettersResponse"
+        style="display: none;">
+
+        <div class="letters-response-box">
+
+            <div class="letters-response-symbol">
+                💌
+            </div>
+
+            <h3>
+                It's here.
+            </h3>
+
+            <p>
+                Whatever you wanted to leave behind,
+                you can let it rest here for a while.
+            </p>
+
+            <button
+                onclick="closeLetterResponse()">
+
+                Stay a little longer
+
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- ========================================
+         RETURN TO WORLD
+         ======================================== -->
+
+    <button
+        class="letters-return"
+        onclick="closeLettersRoom()">
+
+        ✦
+
+        <span>
+            Return to Claudia's World
+        </span>
+
+    </button>
+
+
+</div>
+
+
+</div>
+
+<!-- ============================================
+     THE GALLERY
+     ============================================ -->
+
+<div
+    class="gallery-room"
+    id="galleryRoom"
+    style="display: none;">
+
+    <div class="gallery-background">
+
+        <!-- ========================================
+             GALLERY INTRO
+             ======================================== -->
+
+        <section class="gallery-section gallery-arrival">
+
+            <div class="gallery-intro">
+
+                <p class="gallery-small">
+                    little things i created for you
+                </p>
+
+                <h2>
+                    🎨 The Gallery
+                </h2>
+
+                <p class="gallery-subtitle">
+                    A collection of things I drew for you.<br>
+                   
+                </p>
+
+                <div class="gallery-scroll-hint">
+                    <span>Explore</span>
+                    <span class="gallery-scroll-arrow">↓</span>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ========================================
+             ARTWORK SECTION
+             ======================================== -->
+
+        <section class="gallery-section gallery-art-section">
+
+            <div class="gallery-art-intro">
+
+                <p class="gallery-small">
+                    drawn by me
+                </p>
+
+                <h3>
+                    Little Pieces of Art
+                </h3>
+
+                <p>
+                    You have seen these before.
+                    I wanted them in here for you to have them forever.
+                   
+                </p>
+
+            </div>
+
+
+            <!-- ====================================
+                 ARTWORK 1
+                 ==================================== -->
+
+            <div class="gallery-artwork">
+
+                <div class="gallery-frame">
+
+                    <img
+                        src="drawing-1.jpg"
+                        alt="A drawing I made for Claudia">
+
+                </div>
+
+                <div class="gallery-art-info">
+
+                    <h4>
+                        My best Flower Drawing 
+                    </h4>
+
+                    <p>
+                        Made just for you.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- ====================================
+                 ARTWORK 2
+                 ==================================== -->
+
+            <div class="gallery-artwork">
+
+                <div class="gallery-frame">
+
+                    <img
+                        src="drawing-2.jpg"
+                        alt="A drawing I made for Claudia">
+
+                </div>
+
+                <div class="gallery-art-info">
+
+                    <h4>
+                        Lavender is my favorite flower.
+                    </h4>
+
+                    <p>
+                        Not sure if I ever told you that before.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- ====================================
+                 ARTWORK 3
+                 ==================================== -->
+
+            <div class="gallery-artwork">
+
+                <div class="gallery-frame">
+
+                    <img
+                        src="drawing-3.jpg"
+                        alt="A drawing I made for Claudia">
+
+                </div>
+
+                <div class="gallery-art-info">
+
+                    <h4>
+                        The very first Flowers I drew for you.
+                    </h4>
+
+                    <p>
+                        Because creating things for you
+                        always felt worth it.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- ====================================
+                 THE COMIC
+                 ==================================== -->
+
+            <div class="gallery-comic-feature">
+
+                <div class="gallery-comic-symbol">
+                    📖
+                </div>
+
+                <p class="gallery-small">
+                    something a little different
+                </p>
+
+                <h3>
+                    Midnight Companions 
+                </h3>
+
+                <p>
+                    This is the comic I made for you.
+                    
+                </p>
+
+                <button
+                    class="gallery-comic-button"
+                    onclick="openComic()">
+
+                    ✦
+
+                    <span>
+                        Read the Comic
+                    </span>
+
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- ========================================
+             COMIC READER
+             ======================================== -->
+
+        <div
+            class="comic-reader"
+            id="comicReader"
+            style="display: none;">
+
+            <div class="comic-reader-backdrop"></div>
+
+            <div class="comic-reader-content">
+
+                <button
+                    class="comic-close"
+                    onclick="closeComic()"
+                    aria-label="Close comic">
+
+                    ×
+
+                </button>
+
+
+                <div class="comic-header">
+
+                    <p>
+                        A little story
+                    </p>
+
+                    <h3>
+                        Midnight Companions
+                    </h3>
+
+                </div>
+
+
+                <!-- ==================================
+                     COMIC PANEL
+                     ================================== -->
+
+                <div class="comic-panel-container">
+
+                    <img
+                        id="comicImage"
+                        src="comic-1.jpg"
+                        alt="Comic panel">
+
+                </div>
+
+
+                <!-- ==================================
+                     COMIC CAPTION
+                     ================================== -->
+
+                <div class="comic-caption">
+
+                    <p id="comicCaption">
+                        You were out driving to clear your mind...
+                    </p>
+
+                </div>
+
+
+                <!-- ==================================
+                     COMIC CONTROLS
+                     ================================== -->
+
+                <div class="comic-controls">
+
+                    <button
+                        onclick="previousComicPanel()"
+                        aria-label="Previous comic panel">
+
+                        ◀
+
+                    </button>
+
+
+                    <span id="comicPage">
+                        1 / 4
+                    </span>
+
+
+                    <button
+                        onclick="nextComicPanel()"
+                        aria-label="Next comic panel">
+
+                        ▶
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- ========================================
+             RETURN TO WORLD
+             ======================================== -->
+
+        <button
+            class="gallery-return"
+            onclick="closeGallery()">
+
+            ✦
+
+            <span>
+                Return to Claudia's World
+            </span>
+
+        </button>
+
+    </div>
+
+</div>
+<!-- ============================================
+     PLACES THAT CHANGED YOU
+     ============================================ -->
+
+<div
+    class="places-room"
+    id="placesRoom"
+    style="display: none;">
+
+    <div class="places-background">
+
+        <!-- ========================================
+             OPENING
+             ======================================== -->
+
+        <section class="places-section places-arrival">
+
+            <div class="places-intro">
+
+                <p class="places-small">
+                    places that leave something behind
+                </p>
+
+                <h2>
+                    Places That Changed You
+                </h2>
+
+                <p class="places-subtitle">
+                    Some places you visit.<br>
+                    Some places become a part of you.
+                </p>
+
+                <div class="places-scroll-hint">
+                    <span>Keep going</span>
+                    <span class="places-scroll-arrow">↓</span>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ========================================
+             GUATEMALA
+             ======================================== -->
+
+        <section class="places-section places-destination places-guatemala">
+
+            <div class="places-destination-content">
+
+                <p class="places-small">
+                    somewhere that stayed with you
+                </p>
+
+                <h3>
+                     Guatemala
+                </h3>
+
+                <p class="places-lead">
+                    You only told me little pieces about this place.
+                </p>
+
+                <p>
+                    But even in those little pieces,
+                    I could tell it meant something to you.
+                </p>
+
+                <p>
+                    Maybe it was the people.
+                    Maybe it was the work.
+                    Maybe it was seeing a world different
+                    from your own.
+                </p>
+
+                <p>
+                    Whatever it was,
+                    I could tell it stayed with you.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- ========================================
+             UTAH
+             ======================================== -->
+
+        <section class="places-section places-destination places-utah">
+
+            <div class="places-destination-content">
+
+                <p class="places-small">
+                    another chapter
+                </p>
+
+                <h3>
+                    🏔️ Utah
+                </h3>
+
+                <p class="places-lead">
+                    Before you came back home,
+                    there was another place that was part of your story.
+                </p>
+
+                <p>
+                    A different chapter.
+                    Different surroundings.
+                    Different memories.
+                </p>
+
+                <p>
+                    I don't know everything that happened there.
+                </p>
+
+                <p>
+                    But it was still part of the person
+                    you became.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- ========================================
+             LAREDO
+             ======================================== -->
+
+        <section class="places-section places-destination places-laredo">
+
+            <div class="places-destination-content">
+
+                <p class="places-small">
+                    where you are now
+                </p>
+
+                <h3>
+                    🏠 Laredo
+                </h3>
+
+                <p class="places-lead">
+                    Sometimes being home doesn't mean
+                    feeling at home.
+                </p>
+
+                <p>
+                    Sometimes a place can be familiar
+                    without feeling like where you're meant to stay.
+                </p>
+
+                <p>
+                    Maybe this is just another chapter.
+                </p>
+
+                <p class="places-emphasis">
+                    Not the ending.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- ========================================
+             SOMEWHERE AHEAD
+             ======================================== -->
+
+        <section class="places-section places-future">
+
+            <div class="places-future-content">
+
+                <p class="places-small">
+                    somewhere you haven't been yet
+                </p>
+
+                <h3>
+                    ✨ Somewhere Ahead
+                </h3>
+
+                <p>
+                    Guatemala is somewhere you've been.
+                </p>
+
+                <p>
+                    Utah is somewhere you once called home.
+                </p>
+
+                <p>
+                    Laredo is where you are now.
+                </p>
+
+                <div class="places-divider"></div>
+
+                <p>
+                    But there are still places you've never seen.
+                </p>
+
+                <p>
+                    People you've never met.
+                </p>
+
+                <p>
+                    Memories you haven't made.
+                </p>
+
+                <p>
+                    And a life you haven't reached yet.
+                </p>
+
+                <p class="places-final">
+                    Maybe some of the best places
+                    haven't found you yet.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- ========================================
+             RETURN
+             ======================================== -->
+
+        <button
+            class="places-return"
+            onclick="closePlacesRoom()">
+
+            ✦
+
+            <span>
+                Return to Claudia's World
+            </span>
+
+        </button>
+
+    </div>
+
+</div>
+<!-- ============================================
+     SOMETHING WAITED — FINAL ROOM
+     ============================================ -->
+
+<div
+    class="something-waited-room"
+    id="somethingWaitedRoom"
+    style="display: none;">
+
+    <!-- ========================================
+         CASTLE HALLWAY
+         ======================================== -->
+
+    <div class="waiting-hallway">
+
+        <div class="waiting-hallway-light hallway-light-left"></div>
+        <div class="waiting-hallway-light hallway-light-right"></div>
+
+        <!-- Atmosphere -->
+        <div class="waiting-fog"></div>
+
+        <!-- ====================================
+             HALLWAY INTRO
+             ==================================== -->
+
+        <div
+            class="waiting-intro"
+            id="waitingIntro">
+
+            <p>Something Waited</p>
+
+            <span>
+                There is one last place to go.
+            </span>
+
+        </div>
+
+
+        <!-- ====================================
+             HALLWAY TEXT
+             ==================================== -->
+
+        <div
+            class="waiting-hallway-message"
+            id="waitingHallwayMessage">
+
+            <p id="waitingMessageText">
+                You've seen almost everything.
+            </p>
+
+        </div>
+
+
+        <!-- ====================================
+             THE DISTANT DOOR
+             ==================================== -->
+
+        <div
+            class="waiting-door-container"
+            id="waitingDoorContainer">
+
+            <div class="waiting-door-glow"></div>
+
+            <div
+                class="waiting-door"
+                id="waitingDoor"
+                onclick="attemptWaitingDoor()">
+
+                <div class="waiting-door-frame">
+
+                    <div class="waiting-door-wood">
+
+                        <div class="waiting-door-panel top"></div>
+
+                        <div class="waiting-door-panel middle"></div>
+
+                        <div class="waiting-door-panel bottom"></div>
+
+                        <div class="waiting-door-handle">
+                            🔒
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="waiting-door-title">
+                SOMETHING WAITED
+            </div>
+
+        </div>
+
+
+        <!-- ====================================
+             WALK FORWARD
+             ==================================== -->
+
+        <button
+            class="waiting-walk-button"
+            id="waitingWalkButton"
+            onclick="walkTowardWaitingDoor()">
+
+            Walk forward
+
+            <span>↓</span>
+
+        </button>
+
+
+        <!-- ====================================
+             FINAL DOOR MESSAGE
+             ==================================== -->
+
+        <div
+            class="waiting-door-message"
+            id="waitingDoorMessage"
+            style="display: none;">
+
+            <div class="waiting-door-message-box">
+
+                <div class="waiting-lock-icon">
+                    🔒
+                </div>
+
+                <p class="waiting-small">
+                    something is waiting beyond this door
+                </p>
+
+                <h2>
+                    Locked.
+                </h2>
+
+                <p>
+                    Some things aren't meant to be opened
+                    without a key.
+                </p>
+
+                <button
+                    onclick="showWaitingCipher()">
+
+                    Continue
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+       <div
+    class="waiting-cipher"
+    id="waitingCipher"
+    style="display: none;">
+
+    <div class="waiting-cipher-box">
+
+        <p class="waiting-small">
+            the final message
+        </p>
+
+        <h2>
+            Something has been waiting here.
+        </h2>
+
+        <p class="waiting-cipher-intro">
+            Three poems were written.
+            Three pieces of a story.
+            And somewhere inside the words,
+            I left you one last thing.
+        </p>
+
+
+        <!-- ====================================
+             CIPHER CLUE
+             ==================================== -->
+
+        <div class="waiting-cipher-clue">
+
+            <p>
+                The poems are the key.
+            </p>
+
+            <p>
+                First, find which poem.<br>
+                Then find the line.<br>
+                Then find the word.<br>
+                Then find the letter.
+            </p>
+
+            <p>
+                Follow the numbers.<br>
+                Read what they reveal.
+            </p>
+
+        </div>
+
+
+        <!-- ====================================
+             POEM KEYS
+             ==================================== -->
+
+        <div class="waiting-poem-keys">
+
+            <div class="waiting-poem-key">
+                <span>01</span>
+                <p>White Tulips for You</p>
+            </div>
+
+            <div class="waiting-poem-key">
+                <span>02</span>
+                <p>The Flowers I Made for You</p>
+            </div>
+
+            <div class="waiting-poem-key">
+                <span>03</span>
+                <p>The Light You Bring</p>
+            </div>
+
+        </div>
+
+
+        <!-- ====================================
+             CIPHER EXAMPLE
+             ==================================== -->
+
+        <div class="waiting-cipher-example">
+
+            <p class="waiting-small">
+                how to read it
+            </p>
+
+            <div class="waiting-example-code">
+                01 — 01 — 02 — 01
+            </div>
+
+            <p>
+                poem — line — word — letter
+            </p>
+
+        </div>
+
+
+        <!-- ====================================
+             ENCRYPTED MESSAGE
+             ==================================== -->
+
+        
+<div
+    class="waiting-cipher-message"
+    id="waitingEncryptedMessage">
+
+    01—06—04—04 &nbsp;
+    02—02—01—03 &nbsp;
+    03—04—03—02 &nbsp;
+    01—07—02—03 &nbsp;
+    02—07—05—01 &nbsp;
+    03—05—05—02 &nbsp;
+    01—11—04—02 &nbsp;
+    02—15—02—01 &nbsp;
+    03—04—05—04 &nbsp;
+    01—02—05—04 &nbsp;
+    02—12—03—01 &nbsp;
+    03—05—07—04 &nbsp;
+    03—01—04—04 &nbsp;
+    02—02—05—08 &nbsp;
+    01—14—07—01 &nbsp;
+    02—01—05—01 &nbsp;
+    03—09—03—02 &nbsp;
+    02—07—05—05 &nbsp;
+    02—04—02—01
+
+</div>
+        <!-- ====================================
+             DECODE INPUT
+             ==================================== -->
+
+        <div class="waiting-decode-section">
+
+            <label for="waitingDecodedMessage">
+                What does it say?
+            </label>
+
+            <input
+                type="text"
+                id="waitingDecodedMessage"
+                autocomplete="off"
+                placeholder="Enter the message...">
+
+            <button
+                class="waiting-decode-button"
+                onclick="checkWaitingAnswer()">
+
+                Reveal
+
+            </button>
+
+            <p
+                class="waiting-decode-error"
+                id="waitingDecodeError">
+            </p>
+
+        </div>
+
+
+        <!-- ====================================
+             FINAL REVEAL
+             ==================================== -->
+
+   <div
+    class="waiting-final-reveal"
+    id="waitingFinalReveal"
+    style="display: none;">
+
+    <p class="waiting-small">
+        you found it
+    </p>
+
+    <h2>
+        WILL YOU LET ME BE YOURS?
+    </h2>
+
+    <button
+        class="waiting-final-back-button"
+        onclick="closeSomethingWaited()">
+
+        ← Go Back
+
+    </button>
+
+</div>
+
+    </div>
+
+</div>
+
+        <!-- ====================================
+             RETURN BUTTON
+             ==================================== -->
+
+        <button
+            class="waiting-return"
+            onclick="closeSomethingWaited()">
+
+            ← Return to Claudia's World
+
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- ============================================
+     SOMETHING WAITED — HUB PASSCODE
+     ============================================ -->
+
+<div
+    class="waiting-passcode-overlay"
+    id="waitingPasscodeOverlay"
+    style="display: none;">
+
+    <div class="waiting-passcode-backdrop"></div>
+
+    <div class="waiting-passcode-box">
+
+        <button
+            class="waiting-passcode-close"
+            onclick="closeWaitingPasscode()">
+
+            ×
+
+        </button>
+
+        <p class="waiting-small">
+            Something Waited
+        </p>
+
+        <h2>
+            This one is for last.
+        </h2>
+
+        <p>
+            Before you enter, make sure you've
+            explored everything else.
+        </p>
+
+        <p>
+            There are still things waiting for you
+            throughout this little world.
+        </p>
+
+        <p class="waiting-passcode-final-line">
+            Come back here when you're ready.
+        </p>
+
+        <div class="waiting-passcode-lock">
+            🔒
+        </div>
+
+        <label for="waitingPasscode">
+            Enter Passcode
+        </label>
+
+        <input
+            type="password"
+            id="waitingPasscode"
+            maxlength="20"
+            autocomplete="off">
+
+        <button
+            class="waiting-passcode-enter"
+            onclick="unlockSomethingWaited()">
+
+            Enter
+
+        </button>
+
+        <p
+            class="waiting-passcode-error"
+            id="waitingPasscodeError">
+        </p>
+
+    </div>
+
+</div>
+ 
+<!-- ============================================
+         JAVASCRIPT
+         ============================================ -->
+
+    <script src="script.js"></script>
+
+</body>
+</html>
