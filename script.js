@@ -7,7 +7,7 @@
 // SECRET CODE
 // ============================================
 
-const secretCode = "7132";
+const secretCode = "waste";
 
 let hintUsed = 0;
 
